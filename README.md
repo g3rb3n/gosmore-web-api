@@ -4,11 +4,16 @@ A python wrapper around the Gosmore routing engine executable based on geopy and
 # Testing
 make test
 
+# Installing
+make install
+
+# Running
+make run
+
 # Command line usage
 cd src/python
 python3 -m gosmorewebapi.route --from "My current address" --to "My destination address" --vehicle bicycle
 cd ../..
-
 
 # Example
 ```

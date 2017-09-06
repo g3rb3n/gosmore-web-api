@@ -1,0 +1,6 @@
+*.pyc
+/venv
+/build
+/dist
+/data
+/build-deb

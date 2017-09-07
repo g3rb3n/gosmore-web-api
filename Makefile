@@ -12,8 +12,8 @@ run-dev:
 	cd ../..
 
 install:
-	cp -a src/python/* /usr/lib/python3/
+	cp -a src/python/* /usr/lib/python3/dist-packages/
 	pip3 install -r requirements.txt
 
 uninstall:
-	rm -rf /usr/lib/python3/gosmorewebapi
+	rm -rf /usr/lib/python3/dist-packages/gosmorewebapi

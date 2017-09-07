@@ -46,7 +46,7 @@ def create_query(a, b, vehicle, fastest):
     values.append(a["longitude"])
     values.append(b["latitude"])
     values.append(b["longitude"])
-    values.append(fastest)
+    values.append(1 if fastest else 0)
     values.append(vehicle)
     return '&'.join(['='.join([k, str(v)]) for k,v in zip(keys, values)])
 
@@ -75,6 +75,11 @@ def route_formatted(a, b, vehicle='motorcar', fastest=1, format='geojson'):
     raise "Unknown format %s" % format
 
 def route(a, b, error_collector=[], vehicle='motorcar', fastest=1):
+    if isinstance(a, Point):
+        a = geoobj_to_geodict(a)
+    if isinstance(b, Point):
+        b = geoobj_to_geodict(b)
+
     if not check_bounds(a):
         raise Exception('Start point coordinates are out of bounds')
     if not check_bounds(b):
